@@ -1,5 +1,6 @@
 import { Component, computed, Input, signal, input, Output, EventEmitter } from '@angular/core';
 import { DUMMY_USERS } from '../dummyUsers';
+import { User } from '../Models/User';
 
 
 
@@ -11,9 +12,8 @@ import { DUMMY_USERS } from '../dummyUsers';
   styleUrl: './user.component.css'
 })
 export class UserComponent {
-    @Input({required:true}) id!: string;
-    @Input({required: true}) avatar!: string;
-    @Input({required: true}) name!: string;
+    @Input({required:true}) user!: User;
+    @Input({required: true}) selected!: boolean;
     //This section is about events.
     //First put Decorator @Output()
     @Output() select = new EventEmitter();
@@ -25,10 +25,11 @@ export class UserComponent {
 
     // imgPath = computed(()=> '../../assets/users/' + this.avatar());
     get imagePath() {
-      return '../../assets/users/' + this.avatar;
+      return '../../assets/users/' + this.user.avatar;
     }
     onSelectUser(){
       //The following method triggers event according to my needs.
-      this.select.emit(this.id);
+      this.select.emit(this.user.id);
     }
+    
 }

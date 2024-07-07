@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { HeaderComponent } from './header/header.component';
 import { UserComponent } from './user/user.component';
-import { UserTasksComponent } from './user-tasks/user-tasks.component';
+import { UserTasksComponent } from './tasks/tasks.component';
 import { DUMMY_USERS } from './dummyUsers';
 import { dummyTasks } from './dummyTasks';
 import { User, userTask } from './Models/User';
@@ -13,18 +13,16 @@ import { User, userTask } from './Models/User';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  userTasks = dummyTasks;
+  // userTasks = dummyTasks;
   users = DUMMY_USERS;
-  userName !: string;
   selectedUserTask !: userTask;
-
-  onSelectUser(id:string){
-    for(let index = 0; index < this.userTasks.length; index++){
-      if(this.userTasks[index].userId == id){
-        this.selectedUserTask = this.userTasks[index];
-        break;
-      }
-    }
-    this.userName = (DUMMY_USERS.filter((item:User)=>(item.id !== id)))[0].name;
+  selectedUserId ?: string;
+  addTaskFotUserId ?: string;
+  selectedUser(){
+    return this.users.find((user: User)=> user.id === this.selectedUserId); 
   }
+  onSelectUser(id:string){
+    this.selectedUserId = id 
+  }
+ 
 }
