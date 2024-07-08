@@ -24,12 +24,12 @@ export class UserTasksComponent {
   get selectedUserTasks(){
     return this.tasksService.getSelectedUserTasks(this.userID);
   }  
-  //  onCompleteTask
+   
 
   onStartAddTask(){
     this.isAddingTask = true;
   }
-  onCancelAddTask(){
+  onCloseAddTask(){
     this.isAddingTask = false;
   }
   

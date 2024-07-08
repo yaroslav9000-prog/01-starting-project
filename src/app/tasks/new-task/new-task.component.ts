@@ -32,6 +32,6 @@ export class NewTaskComponent {
 
       }, this.userID
     )
-    this.userID
+    this.close.emit();
   }
 }
