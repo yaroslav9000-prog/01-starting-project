@@ -16,7 +16,7 @@ export class AppComponent {
   // userTasks = dummyTasks;
   users = DUMMY_USERS;
   selectedUserTask !: userTask;
-  selectedUserId ?: string;
+  selectedUserId !: string;
   addTaskFotUserId ?: string;
   selectedUser(){
     return this.users.find((user: User)=> user.id === this.selectedUserId); 

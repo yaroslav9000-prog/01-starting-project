@@ -21,7 +21,13 @@ interface userTask{
  dueDate: string;
 
 }
+interface newTaskData{
+  title: string,
+  summary: string,
+  dueDate: string
+}
 export {
     User,
-    userTask    
+    userTask,
+    newTaskData    
 }
